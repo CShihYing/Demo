@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "新增商品";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="app" v-cloak>
+    <label>商品名稱</label>
+    <div>
+        <input type="text" class="form-control" id="" placeholder="請輸入" v-model="name">
+    </div>
+    <label>商品數量</label>
+    <div>
+        <input type="text" class="form-control" id="" placeholder="請輸入" v-model="quantity">
+    </div>
+    <label>商品價格</label>
+    <div>
+        <input type="text" class="form-control" id="" placeholder="請輸入" v-model="price">
+    </div>
+    <div>
+        <label>
+            <input type="radio" name="status" id="" value="上架" :checked="status" @@click="ChangeStatus(false)" />
+            上架
+        </label>
+        <label>
+            <input type="radio" name="status" id="" value="下架" :checked="!status" @@click="ChangeStatus(true)" />
+            下架
+        </label>
+    </div>
+    <div>
+        <label>上傳檔案</label>
+        <input type="file"  id="imageInput" accept="image/gif, image/jpeg, image/png" v-on:change="onFileChange($event)">
+        <img id="previewImage" src="#" v-show="fileShow"  width="300" height="200"/>
+    </div>
+    <button class="btn btn-default" type="button" @@click="Save">送出</button>
+    <!-- Modal：確認 -->
+    <div class="modal fade" id="Modal-AddSuccess" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close color-white" data-dismiss="modal" aria-label="Close">&times;</button>
+                    <h4 class="modal-title" id="">新增商品</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center">新增成功!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-orange btn-block" onclick="javascript:location.href = '@Url.Action("Manage", "Product")'" data-dismiss="modal">確定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        var injectObj = {
+            urls: {
+                savePath: '@Url.Action("Save", "Product")',
+                index:'@Url.Action("Manage", "Product")'
+            }
+        };
+    </script>
+
+    <script src="~/js/Product/Add.js" asp-src-include="true"></script>
+}
+

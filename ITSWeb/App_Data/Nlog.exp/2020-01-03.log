@@ -1,0 +1,72 @@
+=============================
+發生時間:2020-01-03 13:54:47.1122
+類別:BusinessLogic.Infrastructure.Log
+訊息:
+namespace:
+例外類型:DbEntityValidationException
+例外訊息:一個或多個實體的驗證失敗。如需詳細資料，請參閱 'EntityValidationErrors' 屬性。
+例外來源:EntityFramework
+Stack Trace:   於 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   於 System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   於 System.Data.Entity.DbContext.SaveChanges()
+   於 Repository.GenericRepository`1.Add(TEntity entity) 於 D:\test\TemplateWebProjects-master\TemplateWebProjects-master\Repository\GenericRepository.cs: 行 56
+TargetSite:Int32 SaveChanges()
+
+方法:[System.Web.Mvc.ActionResult Save(BusinessLogic.Domain.ProductModel)] => [BusinessLogic.Domain.ResponseModel Save(BusinessLogic.Domain.ProductModel)] => [Void Error(System.Exception)]
+例外堆疊:
+=============================
+
+=============================
+發生時間:2020-01-03 13:55:42.6367
+類別:BusinessLogic.Infrastructure.Log
+訊息:
+namespace:
+例外類型:DbEntityValidationException
+例外訊息:一個或多個實體的驗證失敗。如需詳細資料，請參閱 'EntityValidationErrors' 屬性。
+例外來源:EntityFramework
+Stack Trace:   於 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   於 System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   於 System.Data.Entity.DbContext.SaveChanges()
+   於 Repository.GenericRepository`1.Add(TEntity entity) 於 D:\test\TemplateWebProjects-master\TemplateWebProjects-master\Repository\GenericRepository.cs: 行 56
+TargetSite:Int32 SaveChanges()
+
+方法:[System.Web.Mvc.ActionResult Save(BusinessLogic.Domain.ProductModel)] => [BusinessLogic.Domain.ResponseModel Save(BusinessLogic.Domain.ProductModel)] => [Void Error(System.Exception)]
+例外堆疊:
+=============================
+
+=============================
+發生時間:2020-01-03 13:59:56.6679
+類別:BusinessLogic.Infrastructure.Log
+訊息:
+namespace:
+例外類型:DbEntityValidationException
+例外訊息:一個或多個實體的驗證失敗。如需詳細資料，請參閱 'EntityValidationErrors' 屬性。
+例外來源:EntityFramework
+Stack Trace:   於 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   於 System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   於 System.Data.Entity.DbContext.SaveChanges()
+   於 Repository.GenericRepository`1.Add(TEntity entity) 於 D:\test\TemplateWebProjects-master\TemplateWebProjects-master\Repository\GenericRepository.cs: 行 56
+TargetSite:Int32 SaveChanges()
+
+方法:[System.Web.Mvc.ActionResult Save(BusinessLogic.Domain.ProductModel)] => [BusinessLogic.Domain.ResponseModel Save(BusinessLogic.Domain.ProductModel)] => [Void Error(System.Exception)]
+例外堆疊:
+=============================
+
+=============================
+發生時間:2020-01-03 14:00:33.0283
+類別:BusinessLogic.Infrastructure.Log
+訊息:
+namespace:
+例外類型:DbEntityValidationException
+例外訊息:一個或多個實體的驗證失敗。如需詳細資料，請參閱 'EntityValidationErrors' 屬性。
+例外來源:EntityFramework
+Stack Trace:   於 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   於 System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   於 System.Data.Entity.DbContext.SaveChanges()
+   於 Repository.GenericRepository`1.Add(TEntity entity) 於 D:\test\TemplateWebProjects-master\TemplateWebProjects-master\Repository\GenericRepository.cs: 行 56
+TargetSite:Int32 SaveChanges()
+
+方法:[System.Web.Mvc.ActionResult Save(BusinessLogic.Domain.ProductModel)] => [BusinessLogic.Domain.ResponseModel Save(BusinessLogic.Domain.ProductModel)] => [Void Error(System.Exception)]
+例外堆疊:
+=============================
+

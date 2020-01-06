@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "瀏覽商品";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="app">
+    <div v-for="item in productList">
+        <div>
+            <img :src=item.ProductImage width="300" height="200" />
+        </div>
+        <div>
+            <label>{{item.ProductName}}</label> <label>    價格:{{item.ProductPrice}}</label>
+            </div>
+        <input type="number" name="points" min="0" max="10" value="1" v-model="item.ProductQuantity">
+        <button @@click="Add(item)">新增至購物車</button>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        var injectObj = {
+            urls: {
+                addShoppingCarPath: '@Url.Action("AddOne", "ShoppingCar")'
+            },
+            productList: JSON.parse('@Html.Raw(Json.Encode(ViewBag.ProductList))')
+        };
+    </script>
+
+    <script src="~/js/Product/index.js" asp-src-include="true"></script>
+}
+

@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="app">
+
+    <template>
+        <my-table :data="shoppingCarList"
+                  :col-configs="colConfigs">
+            <el-table-column slot="delete" label="刪除">
+                <button slot-scope="{ row }" @@click="DeleteProduct(row.Id)">刪除</button>
+            </el-table-column>
+        </my-table>
+    </template>
+    <label>總金額:{{totalAmount}}</label>
+    <div>
+        <button @@click="DeleteAll">查詢</button>
+        <button @@click="Save">結帳</button>
+    </div>
+    
+    <!-- Modal：確認 -->
+    <div class="modal fade" id="Modal-SaveSuccess" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close color-white" data-dismiss="modal" aria-label="Close">&times;</button>
+                    <h4 class="modal-title" id="">結帳</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center">結帳成功!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-orange btn-block" onclick="javascript:location.href = '@Url.Action("index", "Product")'" data-dismiss="modal">確定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        var injectObj = {
+            urls: {
+                savePath: '@Url.Action("Save", "ShoppingCar")',
+                removePath: '@Url.Action("Remove", "ShoppingCar")'
+            },
+            shoppingCarList: JSON.parse('@Html.Raw(Json.Encode(ViewBag.ShoppingCarList.ProductList))')
+        };
+    </script>
+
+    <script src="~/js/ShoppingCar/index.js" asp-src-include="true"></script>
+}
+

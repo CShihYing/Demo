@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="app">
+    <div>
+        <input type="text" placeholder="請輸入" v-model="filter.keyword">
+        <button @@click="Search">查詢</button>
+        <button @@click="Add">新增商品</button>
+    </div>
+    <template>
+        <my-table :data="tableData"
+                  :col-configs="colConfigs">
+            <el-table-column slot="delete" label="刪除">
+                <button slot-scope="{ row }" @@click="DeleteProduct(row)">刪除</button>
+            </el-table-column>
+            <el-table-column slot="edit" label="修改">
+                <button slot-scope="{ row }" @@click="EditProduct(row)">修改</button>
+            </el-table-column>
+        </my-table>
+    </template>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        var injectObj = {
+            urls: {
+                searchPath: '@Url.Action("GetAll", "Product")',
+                deletePath: '@Url.Action("Delete", "Product")',
+                editPath: '@Url.Action("Edit", "Product")',
+                addPath:'@Url.Action("Add", "Product")'
+            },
+            productList: JSON.parse('@Html.Raw(Json.Encode(ViewBag.ProductList))')
+        };
+    </script>
+
+    <script src="~/js/Product/Manage.js" asp-src-include="true"></script>
+}

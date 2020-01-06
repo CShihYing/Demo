@@ -1,0 +1,85 @@
+=============================
+發生時間:2020-01-05 10:30:46.2809
+類別:BusinessLogic.Infrastructure.Log
+訊息:
+namespace:
+例外類型:UnauthorizedAccessException
+例外訊息:拒絕存取路徑 '~/Photo/Full7.jpg\'。
+例外來源:mscorlib
+Stack Trace:   於 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   於 System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
+   於 System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
+   於 System.IO.Directory.CreateDirectory(String path)
+   於 BusinessLogic.Infrastructure.FileBase.Save(String fullPatch, HttpPostedFileBase file) 於 D:\test\TemplateWebProjects-master\TemplateWebProjects-master\BusinessLogic\Infrastructure\FileBase.cs: 行 79
+   於 BusinessLogic.Infrastructure.ImageFile.SaveToPath(HttpPostedFileBase file, String fileName) 於 D:\test\TemplateWebProjects-master\TemplateWebProjects-master\BusinessLogic\Infrastructure\ImageFile.cs: 行 33
+   於 BusinessLogic.Service.ProductService.Save(ProductModel model) 於 D:\test\TemplateWebProjects-master\TemplateWebProjects-master\BusinessLogic\Service\ProductService.cs: 行 100
+TargetSite:Void WinIOError(Int32, System.String)
+
+方法:[System.Web.Mvc.ActionResult Save(BusinessLogic.Domain.ProductModel)] => [BusinessLogic.Domain.ResponseModel Save(BusinessLogic.Domain.ProductModel)] => [Void Error(System.Exception)]
+例外堆疊:
+=============================
+
+=============================
+發生時間:2020-01-05 10:32:34.5793
+類別:BusinessLogic.Infrastructure.Log
+訊息:
+namespace:
+例外類型:DirectoryNotFoundException
+例外訊息:找不到路徑 'C:\Photo\Full\8.jpg\' 的一部分。
+例外來源:mscorlib
+Stack Trace:   於 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   於 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   於 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   於 System.IO.FileStream..ctor(String path, FileMode mode)
+   於 System.Web.HttpPostedFile.SaveAs(String filename)
+   於 System.Web.HttpPostedFileWrapper.SaveAs(String filename)
+   於 BusinessLogic.Infrastructure.FileBase.Save(String fullPatch, HttpPostedFileBase file) 於 D:\test\TemplateWebProjects-master\TemplateWebProjects-master\BusinessLogic\Infrastructure\FileBase.cs: 行 81
+   於 BusinessLogic.Infrastructure.ImageFile.SaveToPath(HttpPostedFileBase file, String fileName) 於 D:\test\TemplateWebProjects-master\TemplateWebProjects-master\BusinessLogic\Infrastructure\ImageFile.cs: 行 33
+   於 BusinessLogic.Service.ProductService.Save(ProductModel model) 於 D:\test\TemplateWebProjects-master\TemplateWebProjects-master\BusinessLogic\Service\ProductService.cs: 行 100
+TargetSite:Void WinIOError(Int32, System.String)
+
+方法:[System.Web.Mvc.ActionResult Save(BusinessLogic.Domain.ProductModel)] => [BusinessLogic.Domain.ResponseModel Save(BusinessLogic.Domain.ProductModel)] => [Void Error(System.Exception)]
+例外堆疊:
+=============================
+
+=============================
+發生時間:2020-01-05 10:34:58.6946
+類別:BusinessLogic.Infrastructure.Log
+訊息:
+namespace:
+例外類型:DirectoryNotFoundException
+例外訊息:找不到路徑 'C:\Photo\Full\9.jpg\' 的一部分。
+例外來源:mscorlib
+Stack Trace:   於 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   於 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   於 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   於 System.IO.FileStream..ctor(String path, FileMode mode)
+   於 System.Web.HttpPostedFile.SaveAs(String filename)
+   於 System.Web.HttpPostedFileWrapper.SaveAs(String filename)
+   於 BusinessLogic.Infrastructure.FileBase.Save(String fullPatch, HttpPostedFileBase file) 於 D:\test\TemplateWebProjects-master\TemplateWebProjects-master\BusinessLogic\Infrastructure\FileBase.cs: 行 81
+   於 BusinessLogic.Infrastructure.ImageFile.SaveToPath(HttpPostedFileBase file, String fileName) 於 D:\test\TemplateWebProjects-master\TemplateWebProjects-master\BusinessLogic\Infrastructure\ImageFile.cs: 行 33
+   於 BusinessLogic.Service.ProductService.Save(ProductModel model) 於 D:\test\TemplateWebProjects-master\TemplateWebProjects-master\BusinessLogic\Service\ProductService.cs: 行 100
+TargetSite:Void WinIOError(Int32, System.String)
+
+方法:[System.Web.Mvc.ActionResult Save(BusinessLogic.Domain.ProductModel)] => [BusinessLogic.Domain.ResponseModel Save(BusinessLogic.Domain.ProductModel)] => [Void Error(System.Exception)]
+例外堆疊:
+=============================
+
+=============================
+發生時間:2020-01-05 10:39:24.4533
+類別:BusinessLogic.Infrastructure.Log
+訊息:
+namespace:
+例外類型:ArgumentException
+例外訊息:路徑不可以是空字串或全部空格。
+例外來源:mscorlib
+Stack Trace:   於 System.IO.Directory.CreateDirectory(String path)
+   於 BusinessLogic.Infrastructure.FileBase.Save(String fullPatch, HttpPostedFileBase file) 於 D:\test\TemplateWebProjects-master\TemplateWebProjects-master\BusinessLogic\Infrastructure\FileBase.cs: 行 74
+   於 BusinessLogic.Infrastructure.ImageFile.SaveToPath(HttpPostedFileBase file, String fileName) 於 D:\test\TemplateWebProjects-master\TemplateWebProjects-master\BusinessLogic\Infrastructure\ImageFile.cs: 行 33
+   於 BusinessLogic.Service.ProductService.Save(ProductModel model) 於 D:\test\TemplateWebProjects-master\TemplateWebProjects-master\BusinessLogic\Service\ProductService.cs: 行 100
+TargetSite:System.IO.DirectoryInfo CreateDirectory(System.String)
+
+方法:[System.Web.Mvc.ActionResult Save(BusinessLogic.Domain.ProductModel)] => [BusinessLogic.Domain.ResponseModel Save(BusinessLogic.Domain.ProductModel)] => [Void Error(System.Exception)]
+例外堆疊:
+=============================
+

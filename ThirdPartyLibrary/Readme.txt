@@ -1,0 +1,3 @@
+ThirdPartyLibrary
+第三方Library
+在透過Nuget找不到第三方Library時，透過其他下載方式引用的dll置放於此，參考路徑亦同。
