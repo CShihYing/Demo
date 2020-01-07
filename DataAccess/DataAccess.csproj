@@ -102,7 +102,6 @@
     <Compile Include="SampleDataBase\Product.cs">
       <DependentUpon>ShoppingCar.tt</DependentUpon>
     </Compile>
-    <Compile Include="SampleDataBase\SampleAspNetUsers.cs" />
     <Compile Include="SampleDataBase\ShoppingCar.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -139,14 +138,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Demo.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Demo_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Demo.mdf</DependentUpon>
-    </Content>
-    <Content Include="SampleDataBase\Readme.txt" />
     <Content Include="SampleDataBase\ShoppingCar.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ShoppingCar.edmx</DependentUpon>

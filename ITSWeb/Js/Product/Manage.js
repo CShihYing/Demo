@@ -1,5 +1,5 @@
 ﻿(function () {
-    Vue.component('my-table',
+    Vue.component('myTable',
         {
             template: ' <el-table :data="data">' +
                 '<template v-for="colConfig in colConfigs">' +
@@ -14,16 +14,17 @@
         el: '#app',
         data: {
             urls: {
-                searchPath: window.injectObj.urls.searchPath || '',
-                deletePath: window.injectObj.urls.deletePath || '',
-                editPath: window.injectObj.urls.editPath || '',
-                addPath: window.injectObj.urls.addPath || ''
+                searchPath: window.injectObj.urls.searchPath || '', //存檔路徑
+                deletePath: window.injectObj.urls.deletePath || '', //刪除路徑
+                editPath: window.injectObj.urls.editPath || '', //修改路徑
+                addPath: window.injectObj.urls.addPath || '' //新增路徑
             },
             filter: {
-                keyword:''
+                keyword:'' //關鍵字
             },
-            tableData: window.injectObj.productList,
-            colConfigs: 
+            tableData: window.injectObj.productList, //表格內容
+            deleteProductId:'', //欲刪除商品Id
+            colConfigs:  //表格設定
                 [
                     { prop: 'ProductName', label: '名稱' },
                     { prop: 'ProductPrice', label: '價格' },
@@ -34,6 +35,7 @@
             
         },
         methods: {
+            //搜尋
             Search: function () {
                 var me = this;
 
@@ -53,27 +55,36 @@
                     alert('資料傳遞發生錯誤，請稍後再試！');
                 });
             },
-            ChangeStatus: function () {
-                this.status = !this.status;
-            },
+            //編輯
             EditProduct: function (item) {
                 var me = this;
                 window.location.href = me.urls.editPath + '?id=' + item.ProductId;
             },
+            //新增
             Add: function() {
                 var me = this;
                 window.location.href = me.urls.addPath ;
             },
+            //改變欲刪除商品
+            ChangeDeleteProduct: function(item) {
+                this.deleteProductId = item.ProductId;
+                $('#Modal-Delete').modal('show');
+            },
+            //刪除
             DeleteProduct: function(item) {
                 var me = this;
 
                 window.axios.post
                     (me.urls.deletePath,
                     {
-                        id:item.ProductId
+                        id: me.deleteProductId
                     }
                 ).then(function (response) {
-                    me.Search();
+                    if (response.data.Status) {
+                        me.Search();
+                    } else {
+                        alert(response.data.Result);
+                    }
                 }).catch(function (response) {
                     alert('資料傳遞發生錯誤，請稍後再試！');
                 });

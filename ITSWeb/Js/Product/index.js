@@ -5,11 +5,12 @@
         el: '#app',
         data: {
             urls: {
-                addShoppingCarPath: window.injectObj.urls.addShoppingCarPath || ''
+                addShoppingCarPath: window.injectObj.urls.addShoppingCarPath || '' //加入購物車
             },
-            productList: window.injectObj.productList
+            productList: window.injectObj.productList //商品列表
         },
         methods: {
+            //新增
             Add: function (item) {
                 var me = this;
                 window.axios.post
@@ -30,22 +31,7 @@
                     alert('資料傳遞發生錯誤，請稍後再試！');
                 });
             },
-            onFileChange: function (event) {
-                var file = event.target.files[0];
-                var me = this;
-                if (file && file !== 'undefined') {
-                    me.file = file;
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        $("#previewImage").attr('src', e.target.result);
-                    }
-                    reader.readAsDataURL(file);
-                    me.fileShow = true;
-                } else {
-                    me.file = '';
-                    me.fileShow = false;
-                }
-            },
+            //初始化
             Init: function () {
                 this.productList.forEach(function (item) {
                     item.ProductQuantity = 1;

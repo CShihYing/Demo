@@ -6,12 +6,12 @@
 <div id="app">
     <div v-for="item in productList">
         <div>
-            <img :src=item.ProductImage width="300" height="200" />
+            <img :src=item.ProductImage width="200" height="130" />
         </div>
         <div>
             <label>{{item.ProductName}}</label> <label>    價格:{{item.ProductPrice}}</label>
-            </div>
-        <input type="number" name="points" min="0" max="10" value="1" v-model="item.ProductQuantity">
+        </div>
+        <input type="number" name="points" min="0" :max="item.MaxQuantity" value="1" v-model="item.ProductQuantity">
         <button @@click="Add(item)">新增至購物車</button>
     </div>
 </div>
@@ -27,7 +27,6 @@
             productList: JSON.parse('@Html.Raw(Json.Encode(ViewBag.ProductList))')
         };
     </script>
-
-    <script src="~/js/Product/index.js" asp-src-include="true"></script>
+    <script src="@Url.Content("/js/Product/index.js")" asp-src-include="true"></script>
 }
 

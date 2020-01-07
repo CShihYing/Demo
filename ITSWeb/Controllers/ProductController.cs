@@ -69,6 +69,7 @@ namespace ITSWeb.Controllers
         /// <summary>
         /// 儲存
         /// </summary>
+        /// <param name="model">產品模型</param>
         /// <returns></returns>
         public ActionResult BuyProduct(ProductModel model)
         {
@@ -78,6 +79,7 @@ namespace ITSWeb.Controllers
         /// <summary>
         /// 查詢
         /// </summary>
+        /// <param name="model">查詢模型</param>
         /// <returns></returns>
         public ActionResult GetAll(ProductFilterModel model)
         {
@@ -87,7 +89,7 @@ namespace ITSWeb.Controllers
         /// <summary>
         /// 刪除
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">產品編號</param>
         /// <returns></returns>
         public ActionResult Delete(int id)
         {

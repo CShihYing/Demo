@@ -5,16 +5,17 @@
         el: '#app',
         data: {
             urls: {
-                savePath: window.injectObj.urls.savePath || ''
+                savePath: window.injectObj.urls.savePath || '' //新增路徑
             },
-            name: '',
-            quantity: '',
-            price: 0,
-            status: true,
-            file: '',
-            fileShow:false
+            name: '', //名稱
+            quantity: '', //數量
+            price: 0,//價格
+            status: true, //上下架
+            file: '', //檔案
+            fileShow:false //是否顯示縮圖
         },
         methods: {
+            //新增
             Save: function () {
                 var me = this;
                 
@@ -38,9 +39,11 @@
                     alert('資料傳遞發生錯誤，請稍後再試！');
                 });
             },
+            //改變上/下架
             ChangeStatus: function () {
                 this.status = !this.status;
             },
+            //選擇檔案上傳
             onFileChange: function(event) {
                 var file = event.target.files[0];
                 var me = this;

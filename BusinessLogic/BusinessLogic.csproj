@@ -65,24 +65,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\SampleDataBase.cs" />
+    <Compile Include="Base\MemberDataBase.cs" />
+    <Compile Include="Base\OrderDataBase.cs" />
+    <Compile Include="Base\ProductDataBase.cs" />
     <Compile Include="Base\ShoppingCarDataBase.cs" />
     <Compile Include="Domain\BaseDomainModel.cs" />
     <Compile Include="Domain\OrderDomainModel.cs" />
     <Compile Include="Domain\ProductDomainModel.cs" />
     <Compile Include="Domain\ShoppingCarDomainModel.cs" />
-    <Compile Include="Helps\CoordinateConversion.cs" />
-    <Compile Include="Infrastructure\FileBase.cs" />
+    <Compile Include="Helps\CommonFunction.cs" />
+    <Compile Include="Infrastructure\DeskFileBase.cs" />
     <Compile Include="Infrastructure\ImageFile.cs" />
     <Compile Include="Interface\EmailSenderBase.cs" />
     <Compile Include="Interface\IFile.cs" />
     <Compile Include="Interface\ILog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\BaseService.cs" />
     <Compile Include="Service\MemberService.cs" />
     <Compile Include="Service\OrderService.cs" />
     <Compile Include="Service\ProductService.cs" />
-    <Compile Include="Service\SampleSystem\SampleService.cs" />
     <Compile Include="Infrastructure\Log.cs" />
     <Compile Include="Infrastructure\EmailSender.cs" />
     <Compile Include="Service\ShoppingCarService.cs" />
@@ -105,10 +105,6 @@
       <Project>{e7ff9901-dd1f-4380-95a9-fc1f784c8d6e}</Project>
       <Name>Repository</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Base\Readme.txt" />
-    <Content Include="Service\SampleSystem\Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

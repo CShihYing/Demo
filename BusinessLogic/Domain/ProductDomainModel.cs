@@ -45,6 +45,10 @@ namespace BusinessLogic.Domain
         /// </summary>
         public int ProductQuantity { get; set; }
         /// <summary>
+        /// 商品最多購買數量
+        /// </summary>
+        public int MaxQuantity { get; set; }
+        /// <summary>
         /// 商品圖片路徑
         /// </summary>
         public string ProductImage { get; set; }

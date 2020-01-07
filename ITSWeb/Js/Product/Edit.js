@@ -5,17 +5,18 @@
         el: '#app',
         data: {
             urls: {
-                savePath: window.injectObj.urls.savePath || ''
+                savePath: window.injectObj.urls.savePath || '' //存檔路徑
             },
-            name: window.injectObj.product.ProductName,
-            quantity: window.injectObj.product.ProductQuantity,
-            price: window.injectObj.product.ProductPrice,
-            status: window.injectObj.product.IsShow,
-            filePath: window.injectObj.product.ProductImage,
-            file: '',
-            fileShow: false
+            name: window.injectObj.product.ProductName, //名稱
+            quantity: window.injectObj.product.ProductQuantity, //數量
+            price: window.injectObj.product.ProductPrice, //價格
+            status: window.injectObj.product.IsShow, //上下架狀態
+            filePath: window.injectObj.product.ProductImage, //圖案路徑
+            file: '', //檔案 
+            fileShow: false //是否顯示縮圖
         },
         methods: {
+            //儲存
             Save: function () {
                 var me = this;
 
@@ -40,9 +41,11 @@
                     alert('資料傳遞發生錯誤，請稍後再試！');
                 });
             },
+            //更改上/下架狀態
             ChangeStatus: function () {
                 this.status = !this.status;
             },
+            //選擇檔案上傳
             onFileChange: function (event) {
                 var file = event.target.files[0];
                 var me = this;
@@ -59,6 +62,7 @@
                     me.fileShow = false;
                 }
             },
+            //初始化
             Init: function() {
                 if (this.filePath !== '') {
                     $("#previewImage").attr('src', this.filePath);

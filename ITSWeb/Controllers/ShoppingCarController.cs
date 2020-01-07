@@ -10,7 +10,10 @@ namespace ITSWeb.Controllers
 {
     public class ShoppingCarController : BaseController
     {
-        // GET: ShoppingCar
+        /// <summary>
+        /// 購物車頁面
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             ViewBag.ShoppingCarList = ShoppingCarService.GetAll(GetUserId());
@@ -19,9 +22,9 @@ namespace ITSWeb.Controllers
         /// <summary>
         /// 新增至購物車
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="model">購物車商品</param>
         /// <returns></returns>
-        public ActionResult Addone(ShoppingCarDetail model)
+        public ActionResult AddOne(ShoppingCarDetail model)
         {
             var result = ShoppingCarService.AppendOne(GetUserId(), model);
             return Json(result, JsonRequestBehavior.DenyGet);
@@ -29,7 +32,7 @@ namespace ITSWeb.Controllers
         /// <summary>
         /// 自購物車移除
         /// </summary>
-        /// <param name="productId"></param>
+        /// <param name="productId">商品編號</param>
         /// <returns></returns>
         public ActionResult Remove( int productId)
         {
@@ -42,18 +45,35 @@ namespace ITSWeb.Controllers
         /// <returns></returns>
         public ActionResult Save()
         {
-            var result = new ResponseModel();
-            var shoppingCar = ShoppingCarService.GetAll(GetUserId());
-            foreach (var product in shoppingCar.ProductList)
+            ResponseModel result=new ResponseModel(){Status = false, Result ="查無商品!"};
+            try
             {
-                result=ProductService.ChangeProductQuantity(product.Id, product.Qty);
-                if(!result.Status) Json(result);
+                var shoppingCar = ShoppingCarService.GetAll(GetUserId());
+                if (!(shoppingCar == null || shoppingCar.ProductList == null || shoppingCar.ProductList.Count == 0))
+                {
+                    result = ProductService.CheckProductQuantity(shoppingCar.ProductList);
+                }
+
+                if (result.Status)
+                {
+                    result = OrderService.SaveOrder(shoppingCar);
+                    if (result.Status)
+                    {
+                        result = ProductService.SaveChangeProductQuantity();
+                        if (!result.Status) return Json(result);
+                        result = ShoppingCarService.Remove(GetUserId(), -1);
+                    }
+                }
             }
-            result = OrderService.SaveOrder(shoppingCar);
-            if (result.Status)
+            catch (Exception ex)
             {
-                result = ShoppingCarService.Remove(GetUserId(),-1);
+                throw ex;
             }
+            finally
+            {
+                ProductService.UnLockProduct();
+            }
+
             return Json(result);
         }
 

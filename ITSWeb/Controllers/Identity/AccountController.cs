@@ -78,6 +78,12 @@ namespace ITSWeb.Controllers.Identity
             switch (result)
             {
                 case SignInStatus.Success:
+                    var id = System.Web.HttpContext.Current.Session["RandomId"]?.ToString();
+                    if (!string.IsNullOrWhiteSpace(id))
+                    {
+                        ShoppingCarService.ChangeShoppingCarId(id,GetUserId());
+                        System.Web.HttpContext.Current.Session["RandomId"] = "";
+                    }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");

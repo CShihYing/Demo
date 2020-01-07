@@ -1,14 +1,8 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-@{
-    ViewBag.Title = "Manage";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
 <div id="app">
 
     <template>
@@ -21,10 +15,10 @@
     </template>
     <label>總金額:{{totalAmount}}</label>
     <div>
-        <button @@click="DeleteAll">查詢</button>
+        <button @@click="DeleteAll">刪除購物車</button>
         <button @@click="Save">結帳</button>
     </div>
-    
+
     <!-- Modal：確認 -->
     <div class="modal fade" id="Modal-SaveSuccess" role="dialog">
         <div class="modal-dialog modal-sm">
@@ -57,6 +51,6 @@
         };
     </script>
 
-    <script src="~/js/ShoppingCar/index.js" asp-src-include="true"></script>
+    <script src="@Url.Content("/js/ShoppingCar/index.js")" asp-src-include="true"></script>
 }
 

@@ -3,7 +3,7 @@ using BusinessLogic.Interface;
 
 namespace BusinessLogic.Infrastructure
 {
-    public class ImageFile : FileBase
+    public class ImageFile : DeskFileBase
     {
         /// <summary>
         /// 目錄
@@ -12,17 +12,18 @@ namespace BusinessLogic.Infrastructure
         /// <summary>
         /// 刪除檔案
         /// </summary>
-        /// <param name="fileName"></param>
+        /// <param name="fileName">檔名</param>
         /// <returns></returns>
         public override bool DeleteFile(string fileName)
         {
+            if (string.IsNullOrWhiteSpace(fileName)) return true;
             return Delete(_path + fileName);
         }
         /// <summary>
         /// 儲存
         /// </summary>
-        /// <param name="file"></param>
-        /// <param name="fileName"></param>
+        /// <param name="file">檔案</param>
+        /// <param name="fileName">檔名</param>
         /// <returns></returns>
         public override bool SaveToPath(HttpPostedFileBase file, string fileName)
         {
@@ -35,7 +36,7 @@ namespace BusinessLogic.Infrastructure
         /// <summary>
         /// 設定路徑
         /// </summary>
-        /// <param name="path"></param>
+        /// <param name="path">路徑</param>
         public override void SetPath(string path)
         {
             _path = path;

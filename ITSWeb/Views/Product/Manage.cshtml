@@ -5,6 +5,7 @@
 }
 <div id="app">
     <div>
+        <br>
         <input type="text" placeholder="請輸入" v-model="filter.keyword">
         <button @@click="Search">查詢</button>
         <button @@click="Add">新增商品</button>
@@ -13,13 +14,39 @@
         <my-table :data="tableData"
                   :col-configs="colConfigs">
             <el-table-column slot="delete" label="刪除">
-                <button slot-scope="{ row }" @@click="DeleteProduct(row)">刪除</button>
+                <button slot-scope="{ row }" @@click="ChangeDeleteProduct(row)">刪除</button>
             </el-table-column>
             <el-table-column slot="edit" label="修改">
                 <button slot-scope="{ row }" @@click="EditProduct(row)">修改</button>
             </el-table-column>
         </my-table>
     </template>
+    
+    <!-- Modal：資料刪除 -->
+    <div class="modal fade" id="Modal-Delete" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close color-white" data-dismiss="modal" aria-label="Close">&times;</button>
+                    <h4 class="modal-title" id="">刪除</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="hid_delDid" value="" />
+                    <p class="text-center">提醒您！刪除後將無法復原，請問是否確定刪除?</p>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <button type="button" class="btn btn-gray btn-block" data-dismiss="modal">取消</button>
+                        </div>
+                        <div class="col-xs-6">
+                            <button type="button" class="btn btn-orange btn-block" data-dismiss="modal" @@click="DeleteProduct()">確定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @section Scripts
@@ -37,5 +64,5 @@
         };
     </script>
 
-    <script src="~/js/Product/Manage.js" asp-src-include="true"></script>
+    <script src="@Url.Content("/js/Product/Manage.js")" asp-src-include="true"></script>
 }

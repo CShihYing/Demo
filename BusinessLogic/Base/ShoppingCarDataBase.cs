@@ -7,31 +7,17 @@ using System;
 namespace BusinessLogic.Base
 {
     public class ShoppingCarDataBase : IDisposable
-    { /// <summary>
+    { 
+        /// <summary>
         /// log
         /// </summary>
         protected ILog _log = new Log();
 
         /// <summary>
-        /// 會員(使用者)資料表
-        /// </summary>
-        protected IRepository<AspNetUsers> MemberRepository { get; set; }
-        /// <summary>
-        /// 商品資料表
-        /// </summary>
-        protected IRepository<Product> ProductRepository { get; set; }
-        /// <summary>
         /// 購物車資料表
         /// </summary>
         protected IRepository<ShoppingCart> ShoppingCarRepository { get; set; }
-        /// <summary>
-        /// 訂單主檔資料表
-        /// </summary>
-        protected IRepository<Orders> OrderRepository { get; set; }
-        /// <summary>
-        /// 訂單細項資料表
-        /// </summary>
-        protected IRepository<OrderDetail> OrderDetailRepository { get; set; }
+       
 
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources.

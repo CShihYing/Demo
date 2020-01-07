@@ -243,6 +243,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Css\index.css" />
     <Content Include="Content\Css\Readme.txt" />
     <Content Include="Content\Images\Readme.txt" />
     <Content Include="favicon.ico" />
@@ -264,12 +265,7 @@
     <Content Include="Js\Product\Edit.js" />
     <Content Include="Js\Product\index.js" />
     <Content Include="Js\Product\Manage.js" />
-    <Content Include="Js\Readme.txt" />
     <Content Include="Js\ShoppingCar\index.js" />
-    <Content Include="Models\Base\Readme.txt" />
-    <Content Include="Models\Domain\Readme.txt" />
-    <Content Include="Models\Repository\Readme.txt" />
-    <Content Include="Models\Service\Readme.txt" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
