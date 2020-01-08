@@ -1,1 +1,1 @@
-# DB預設放置於D槽根目錄下
+# 管理者Admin/1qaz@WSX 使用者user/1qaz@WSX
